@@ -21,6 +21,7 @@ spec:
         - name: http2
           port: 80 
           targetPort: 8080
+      type: ClusterIP
       serviceAnnotations:
         cloud.google.com/neg: '{"ingress": true}'
         cloud.google.com/backend-config: '{"default":"ingress"}'
@@ -31,7 +32,7 @@ spec:
         enabled: true
         k8s:
           service:
-            type: LoadBalance
+            type: LoadBalancer
           serviceAnnotations:
             cloud.google.com/load-balancer-type: "Internal"
             networking.gke.io/internal-load-balancer-allow-global-access: "true"

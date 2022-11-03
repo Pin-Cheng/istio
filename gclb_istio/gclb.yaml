@@ -21,18 +21,18 @@ spec:
 #  redirectToHttps:
 #    enabled: true
 #    responseCodeName: PERMANENT_REDIRECT
-# ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: ingressgateway
-#   namespace: istio-system
-#   annotations:
-#     kubernetes.io/ingress.global-static-ip-name: prod-eip  ##change eip name
-#     networking.gke.io/v1beta1.FrontendConfig: http-redirect
-# spec:
-#   defaultBackend:
-#     service:
-#       name: istio-ingressgateway
-#       port:
-#         number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingressgateway
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: sre-eip  ##change eip name
+    # networking.gke.io/v1beta1.FrontendConfig: http-redirect
+spec:
+  defaultBackend:
+    service:
+      name: istio-ingressgateway
+      port:
+        number: 80
