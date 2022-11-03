@@ -15,17 +15,17 @@ spec:
     gateways:
       istio-ingressgateway:
         ports:
-        - name: status-port
-          port: 15021 
-          targetPort: 15021
-        - name: http2
-          port: 80 
-          targetPort: 8080
-      type: ClusterIP
-      serviceAnnotations:
-        cloud.google.com/neg: '{"ingress": true}'
-        cloud.google.com/backend-config: '{"default":"ingress"}'
-        cloud.google.com/app-protocols: '{"http2":"HTTP"}'
+          - name: status-port
+            port: 15021 
+            targetPort: 15021
+          - name: http2
+            port: 80 
+            targetPort: 8080
+        type: ClusterIP
+        serviceAnnotations:
+          cloud.google.com/neg: '{"ingress": true}'
+          cloud.google.com/backend-config: '{"default":"ingress"}'
+          cloud.google.com/app-protocols: '{"http2":"HTTP"}'
   components:
     ingressGateways:
       - name: istio-ilbgateway
